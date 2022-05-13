@@ -38,19 +38,60 @@ int str2int( const char* s )
 	return val;
 }
 
+int GetFibAt(int loc) {
+	if (loc <= 1)
+		return loc; 
+	return GetFibAt(loc - 1) + GetFibAt(loc - 2);
+}
+
+char* IntToString(int integer) {
+	char what[] = "Test";
+	return what;
+}
+int StringToInt(const char* str) {
+	int decimalPlace = 1; 
+	const char* pEnd = str; 
+	for (; *pEnd >= 48 && *pEnd <= 57; pEnd++);
+	pEnd--; 
+	int value = 0;
+	for (; *pEnd >= 48 && *pEnd <= 57; pEnd--) {
+		value += *pEnd * decimalPlace; 
+		decimalPlace *= 10;
+	}
+	return value; 
+}
+
 int main()
 {
-	print( "How many pubes? " );
-	char answer[69];
-	read( answer,69 );
+	//print( "How many pubes? " );
+	//char answer[69];
+	//read( answer,69 );
 
-	const int pubeCount = str2int( answer );
+	//GetFibAt(10);
 
-	print( "\n" );
-	for( int n = 0; n < pubeCount; n++ )
-	{
-		print( "Pubes! " );
-	}
+	//const int pubeCount = str2int( answer );
+
+	//print( "\n" );
+	//for( int n = 0; n < pubeCount; n++ )
+	//{
+	//	print( "Pubes! " );
+	//}
+	
+	const char* test = "123456What's up";
+
+	int get = StringToInt(test);
+
+	int val = -1;
+	//char input[30];
+	//print("Type in fib location: ");
+	//read(input, 30);
+	//int index = StringToInt(input);
+	//int fibNumber = GetFibAt(index);
+	//char* answer = IntToString(fibNumber);
+	//print("Fib number: ");
+	//print(answer);
+
+
 
 	while( !_kbhit() );
 	return 0;
